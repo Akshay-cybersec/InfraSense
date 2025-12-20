@@ -1,9 +1,18 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import { Colors } from "../../assets/theme/colors";
+import ScreenHeader from "../components/ScreenHeader";
 
 export default function Home() {
   return (
-    <View className="flex-1 items-center justify-center bg-black">
-      <Text className="text-white text-3xl font-bold">Home</Text>
+    <View
+      style={{ backgroundColor: Colors.textPrimary }}
+      className="flex-1"
+    >
+      <ScreenHeader
+        title="InfraSense"
+        subtitle="Live Infrastructure Status"
+      />
+
     </View>
   );
 }

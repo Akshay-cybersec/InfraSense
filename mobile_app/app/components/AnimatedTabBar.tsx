@@ -2,6 +2,7 @@ import { View, Pressable, Dimensions } from "react-native";
 import Animated, { useAnimatedStyle, withTiming } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
+import { Colors } from "../../assets/theme/colors";
 
 const { width } = Dimensions.get("window");
 const TAB_WIDTH = width / 3;
@@ -26,12 +27,17 @@ export default function AnimatedTabBar({ state, navigation }: any) {
   }));
 
   return (
-    <View style={{ paddingBottom: insets.bottom }} className="bg-neutral-900">
-      <View className="flex-row h-16 rounded-t-3xl overflow-hidden">
-        
+    <View style={{ paddingBottom: insets.bottom }}>
+      <View
+        style={{ backgroundColor: Colors.surface }}
+        className="flex-row h-16 rounded-t-3xl overflow-hidden"
+      >
         <Animated.View
-          style={[{ width: TAB_WIDTH }, animatedStyle]}
-          className="absolute h-full bg-indigo-600 rounded-t-3xl"
+          style={[
+            { width: TAB_WIDTH, backgroundColor: Colors.primary },
+            animatedStyle,
+          ]}
+          className="absolute h-full rounded-t-3xl"
         />
 
         {state.routes.map((route: any, index: number) => {
@@ -46,13 +52,20 @@ export default function AnimatedTabBar({ state, navigation }: any) {
               <Ionicons
                 name={ICONS[route.name] ?? "ellipse-outline"}
                 size={22}
-                color={focused ? "#FFFFFF" : "#9CA3AF"}
+                color={
+                  focused
+                    ? Colors.iconActive
+                    : Colors.iconInactive
+                }
               />
 
               <Animated.Text
-                className={`text-xs font-medium ${
-                  focused ? "text-white" : "text-gray-400"
-                }`}
+                style={{
+                  color: focused
+                    ? Colors.textPrimary
+                    : Colors.textSecondary,
+                }}
+                className="text-xs font-medium"
               >
                 {route.name}
               </Animated.Text>
