@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "InfraSense",
+    "slug": "infrasense",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "mobileapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "icon": "./assets/icon.png",
+    "ios": {
+      "supportsTablet": true
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/icon-nobg.png",
+          "imageWidth": 240,
+          "resizeMode": "contain",
+          "backgroundColor": "#0f172a",
+          "android": {
+            "showName": false
+          },
+          "dark": {
+            "backgroundColor": "#000000"
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "android": {
+      "package": "com.anonymous.infrasense"
+    }
+  }
+}
